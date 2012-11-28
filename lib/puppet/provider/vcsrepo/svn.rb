@@ -54,7 +54,7 @@ Puppet::Type.type(:vcsrepo).provide(:svn, :parent => Puppet::Provider::Vcsrepo) 
   def latest
     args = buildargs.push('info', '-r', 'HEAD')
     at_path do
-      svn(*args)[/^Last Changed Rev:\s+(\d+)/m, 1]
+      svn(*args)[/^Revision:\s+(\d+)/m, 1]
     end
   end
 
